@@ -6,6 +6,8 @@
 # named constant
 LATE_PENALTY = 10
 EXTRA_CREDIT_BONUS = 5
+MAX_SCORE = 100
+MIN_SCORE = 0
 # ------------------------------------------------------------
 # Step 1: Get starting information
 # ------------------------------------------------------------
@@ -73,8 +75,10 @@ if extra_credit_completed:
 # Else:
 # - leave final_score unchanged
 
-
-
+if final_score > MAX_SCORE:
+    final_score = MAX_SCORE
+elif final_score < MIN_SCORE:
+    final_score = MIN_SCORE
 
 # ------------------------------------------------------------
 # Step 5: Decide letter grade
@@ -89,8 +93,16 @@ if extra_credit_completed:
 # 60 or above: D
 # Below 60: F
 
-
-
+if final_score >= 90:
+    letter_grade = "A"
+elif final_score >= 80:
+    letter_grade = "B"
+elif final_score >= 70:
+    letter_grade = "C"
+elif final_score >= 60:
+    letter_grade = "D"
+else:
+    letter_grade = "F"
 
 # ------------------------------------------------------------
 # Step 6: Decide if the student is passing
